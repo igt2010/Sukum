@@ -1,4 +1,4 @@
-# Sukkum
+# Sukum
 
 Web sencilla y serena para meditación guiada. Sitio **estático** (solo HTML + CSS), sin dependencias ni pasos de compilación.
 
@@ -63,8 +63,8 @@ Copia los archivos a la raíz del sitio y sirve la carpeta como estática:
 ```nginx
 server {
     listen 80;
-    server_name sukkum.com;
-    root /var/www/sukkum;   # aquí van index.html, styles.css y audio/
+    server_name sukum.com;
+    root /var/www/sukum;   # aquí van index.html, styles.css y audio/
     index index.html;
 }
 ```
