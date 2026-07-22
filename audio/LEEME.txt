@@ -1,0 +1,8 @@
+Coloca aquí los archivos de audio de las meditaciones (.mp3).
+
+Los nombres esperados por la página de ejemplo son:
+  respiracion-consciente.mp3
+  body-scan.mp3
+  dormir.mp3
+
+Puedes cambiar estos nombres editando el atributo src de cada <source> en index.html.

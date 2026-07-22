@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sukkum · Meditación guiada</title>
+  <meta name="description" content="Sukkum: un espacio sereno para la meditación guiada, noticias y calma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="#inicio" class="logo">Sukkum</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+    <label for="nav-toggle" class="nav-burger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav">
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#meditaciones">Meditaciones</a>
+      <a href="#noticias">Noticias</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Respira · Habita · Suelta</p>
+        <h1>Un espacio sereno para volver a ti</h1>
+        <p class="lead">
+          Meditaciones guiadas, recursos y una comunidad que camina despacio.
+          Encuentra tu calma en Sukkum.
+        </p>
+        <a href="#meditaciones" class="btn">Empezar a meditar</a>
+      </div>
+    </section>
+
+    <section id="quienes-somos" class="section">
+      <div class="section-inner">
+        <p class="eyebrow">Quiénes somos</p>
+        <h2>Un pequeño refugio para la mente</h2>
+        <div class="two-col">
+          <p>
+            Sukkum nace del deseo de crear un lugar tranquilo donde detenerse.
+            Acompañamos tu práctica de meditación con sesiones guiadas pensadas
+            para todos los niveles, desde quien empieza hasta quien lleva años
+            en el camino.
+          </p>
+          <p>
+            Creemos en lo sencillo: respirar, escuchar y volver al presente.
+            Aquí no hay prisa. Solo un espacio para reencontrarte contigo,
+            a tu ritmo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="meditaciones" class="section section-alt">
+      <div class="section-inner">
+        <p class="eyebrow">Meditaciones guiadas</p>
+        <h2>Escucha y déjate llevar</h2>
+        <div class="cards">
+          <article class="card">
+            <span class="card-tag">10 min · Principiante</span>
+            <h3>Respiración consciente</h3>
+            <p>Una práctica breve para anclarte en el aquí y ahora.</p>
+            <audio controls preload="none">
+              <source src="audio/respiracion-consciente.mp3" type="audio/mpeg" />
+              Tu navegador no admite audio.
+            </audio>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">15 min · Todos los niveles</span>
+            <h3>Body scan para relajar</h3>
+            <p>Recorre tu cuerpo y suelta la tensión acumulada del día.</p>
+            <audio controls preload="none">
+              <source src="audio/body-scan.mp3" type="audio/mpeg" />
+              Tu navegador no admite audio.
+            </audio>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">20 min · Descanso</span>
+            <h3>Meditación para dormir</h3>
+            <p>Acompaña tu descanso con una guía suave hacia el sueño.</p>
+            <audio controls preload="none">
+              <source src="audio/dormir.mp3" type="audio/mpeg" />
+              Tu navegador no admite audio.
+            </audio>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="noticias" class="section">
+      <div class="section-inner">
+        <p class="eyebrow">Noticias</p>
+        <h2>Novedades y anuncios</h2>
+        <div class="news">
+          <article class="news-item">
+            <time datetime="2026-07-20">20 jul 2026</time>
+            <h3>Nuevo ciclo de meditación matinal</h3>
+            <p>Comenzamos sesiones en directo cada lunes a las 8:00. Plazas limitadas.</p>
+          </article>
+          <article class="news-item">
+            <time datetime="2026-07-10">10 jul 2026</time>
+            <h3>Retiro de fin de semana</h3>
+            <p>Un espacio de silencio y naturaleza. Abrimos inscripciones este mes.</p>
+          </article>
+          <article class="news-item">
+            <time datetime="2026-06-28">28 jun 2026</time>
+            <h3>Nuevas meditaciones disponibles</h3>
+            <p>Hemos añadido tres prácticas guiadas para acompañar tu descanso.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Sukkum · Hecho con calma</p>
+    <p><a href="mailto:hola@sukkum.com">hola@sukkum.com</a></p>
+  </footer>
+</body>
+</html>
