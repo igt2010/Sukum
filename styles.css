@@ -1,4 +1,6 @@
 :root {
+  --curve: clamp(3.5rem, 7vw, 7rem);
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 62C160 6 340 6 540 46S900 96 1100 58C1260 28 1370 22 1440 38V100H0Z'/%3E%3C/svg%3E");
   --green: #5f938d;
   --green-dark: #315e58;
   --beige: #eae1d2;
@@ -317,7 +319,8 @@ button {
   max-width: 46rem;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(4rem, 6vw, 6rem) clamp(2rem, 7vw, 8rem);
+  padding: clamp(4rem, 6vw, 6rem) clamp(2rem, 7vw, 8rem)
+    calc(clamp(4rem, 6vw, 6rem) + var(--curve));
 }
 
 .hero h1 {
@@ -410,11 +413,11 @@ input:disabled {
   padding: clamp(6rem, 10vw, 10rem) max(1.5rem, calc((100vw - var(--content)) / 2));
 }
 
-/* Transiciones curvas entre secciones: cada bloque "sube" sobre el anterior
-   con una cúpula suave del mismo color que su fondo. */
+/* Transiciones entre secciones: cada bloque "sube" sobre el anterior con un
+   borde ondulado (tramo convexo y tramo cóncavo) del mismo color que su fondo.
+   La forma de la ola es una máscara SVG que se estira al ancho de la sección. */
 .section,
 .site-footer {
-  --curve: clamp(3rem, 8vw, 7.5rem);
   position: relative;
 }
 
@@ -422,13 +425,14 @@ input:disabled {
 .site-footer::before {
   position: absolute;
   top: calc(var(--curve) * -1 + 1px);
-  left: -15%;
-  width: 130%;
+  left: 0;
+  width: 100%;
   height: var(--curve);
   background: inherit;
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   content: "";
   pointer-events: none;
+  -webkit-mask: var(--wave) center / 100% 100% no-repeat;
+  mask: var(--wave) center / 100% 100% no-repeat;
 }
 
 .section-inner {
@@ -987,7 +991,7 @@ input:disabled {
   }
 
   .hero-content {
-    padding: 5rem 2.5rem;
+    padding: 5rem 2.5rem calc(4rem + var(--curve));
   }
 
   .section {
@@ -1090,7 +1094,7 @@ input:disabled {
 
   .hero-content {
     max-width: none;
-    padding: 4.5rem 1.5rem 3.5rem;
+    padding: 4.5rem 1.5rem 3.5rem; /* la imagen va debajo: la ola cae sobre ella */
   }
 
   .hero h1 {
