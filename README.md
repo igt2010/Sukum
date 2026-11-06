@@ -1,81 +1,94 @@
 # Sukum
 
-Web sencilla y serena para meditación guiada. Sitio **estático** (solo HTML + CSS), sin dependencias ni pasos de compilación.
+Web de una sola página para Sukum: marca, diario **Sukum 7**, recursos gratuitos, creadoras y newsletter. Sitio **estático** (HTML + CSS + JavaScript nativo), sin dependencias ni compilación.
 
 ## Estructura
 
 ```
-index.html      Página única con las secciones
-styles.css      Estilos (paleta pastel, responsive)
-audio/          Archivos .mp3 de las meditaciones
+index.html            Página principal (one-page)
+styles.css            Sistema visual responsive
+scripts/site.js       Menú móvil, enlace activo y diálogo de recursos
+aviso-legal.html      Borrador de aviso legal
+privacidad.html       Borrador de política de privacidad
+cookies.html          Borrador de política de cookies
+tests/test_site.py    Contrato automático del sitio
+audio/                MP3 de meditaciones (conservados, NO enlazados)
+docs/superpowers/     Especificación y plan del rediseño
 ```
 
 ## Secciones
 
-- **Inicio**: portada con bienvenida.
-- **Quiénes somos**: presentación del proyecto.
-- **Meditaciones**: tarjetas con reproductor de audio nativo (`<audio>`).
-- **Noticias**: anuncios e información.
+Los enlaces del menú saltan a estas secciones (`id`):
 
-## Despliegue en desarrollo
+| Menú | `id` | Contenido |
+|---|---|---|
+| Sukum | `inicio` | Portada |
+| — | `filosofia` | Nuestra filosofía y tres pilares |
+| El diario | `diario` | Sukum 7 y enlace a Amazon |
+| Recursos gratuitos | `recursos` | Tres guías |
+| Nosotras | `nosotras` | Las creadoras |
+| Contacto | `contacto` | Newsletter y correo |
 
-Es un sitio estático, así que abrir `index.html` en el navegador ya funciona. Para que el audio y las rutas relativas se comporten como en producción, sirve la carpeta con un servidor local:
+## Ver la web en local
 
 ```bash
-# Opción 1: Python (viene con casi cualquier sistema)
 python -m http.server 8000
-
-# Opción 2: Node (si lo tienes instalado)
-npx serve .
 ```
 
-Luego visita http://localhost:8000 (o el puerto que indique el comando).
+Visita http://localhost:8000. Los cambios se ven al recargar.
 
-Cualquier cambio en `index.html` / `styles.css` se ve al recargar la página; no hay compilación.
-
-## Despliegue en producción
-
-Al ser 100% estático puedes publicarlo gratis en cualquier hosting de estáticos. Opciones recomendadas:
-
-### GitHub Pages (más directo, ya está en GitHub)
-
-1. Sube el proyecto a GitHub (ya hecho si seguiste los pasos de instalación).
-2. En el repo: **Settings → Pages**.
-3. En *Source* elige **Deploy from a branch**, rama `main` y carpeta `/ (root)`.
-4. Guarda. En 1-2 minutos estará en `https://<usuario>.github.io/<repo>/`.
-
-O por línea de comandos:
+## Pruebas
 
 ```bash
-gh api -X POST repos/<usuario>/<repo>/pages -f "source[branch]=main" -f "source[path]=/"
+python -m unittest tests.test_site -v
+node --check scripts/site.js
 ```
 
-### Netlify / Cloudflare Pages (dominio propio y HTTPS automático)
+## Sustituir el contenido provisional
 
-1. Conecta el repositorio desde su panel web.
-2. **Build command:** *(vacío)* · **Publish directory:** `.`
-3. Deploy. Cada `git push` a `main` vuelve a desplegar automáticamente.
+- **Portada**: reemplaza `.hero-visual` en `index.html` por una `<img>` optimizada.
+- **Diario**: reemplaza `.journal-visual` por una fotografía real del diario abierto.
+- **Creadoras**: en cada `article.creator`, sustituye la foto, el nombre («Nombre pendiente») y la biografía (hay un comentario `Sustituir este texto…`).
+- **Portadas de las guías**: sustituye cada `.resource-cover` por la portada definitiva.
+- Usa WebP o AVIF, indica `width` y `height` y escribe un `alt` descriptivo.
 
-### Servidor propio (Nginx)
+## Activar Brevo (pendiente)
 
-Copia los archivos a la raíz del sitio y sirve la carpeta como estática:
+Ahora mismo los formularios **no recogen ni envían datos**: el campo de correo y el botón están desactivados y los recursos abren un aviso de «próximamente».
 
-```nginx
-server {
-    listen 80;
-    server_name sukum.com;
-    root /var/www/sukum;   # aquí van index.html, styles.css y audio/
-    index index.html;
-}
-```
+Para activarlos:
 
-Recuerda subir también la carpeta `audio/` con los `.mp3`.
+1. Crea la cuenta de Brevo, una lista para recursos y otra para la newsletter.
+2. Crea los formularios con doble confirmación y copia sus enlaces o códigos públicos.
+3. Sustituye en `index.html` el formulario `data-brevo-pending` y los botones `data-resource-open`, y ajusta `scripts/site.js`.
+4. **Nunca** pongas una clave API privada en el HTML ni en el JavaScript.
+5. Completa y haz revisar `privacidad.html` y `cookies.html` **antes** de activar el envío.
+6. El consentimiento de la newsletter debe ser independiente de descargar una guía.
+7. Comprueba consentimiento, correo de confirmación, baja y entrega de cada guía.
 
-## Añadir una meditación
+## Antes del lanzamiento definitivo
 
-1. Copia el `.mp3` dentro de `audio/`.
-2. Duplica una tarjeta `<article class="card">` en `index.html` y ajusta título, texto y `src` del `<source>`.
+- Las tres páginas legales son **borradores**: faltan titular, NIF/CIF, domicilio y revisión profesional.
+- Confirma que `info@sukum.es` existe y funciona.
+- Sustituye los marcadores de fotografía y los textos de las creadoras.
+- Si no quieres que Google Fonts se cargue desde Google, aloja las tipografías en el propio sitio.
 
-## Añadir una noticia
+## Meditaciones guiadas
 
-Duplica un `<article class="news-item">` en `index.html` y edita fecha, título y texto.
+Por ahora no se muestran. Los MP3 siguen en `audio/` y `scripts/gen_test_audio.py` puede regenerarlos, pero no hay ninguna sección ni enlace que los exponga.
+
+## Despliegue
+
+### Desarrollo
+
+Sirve la carpeta con `python -m http.server 8000` (o `npx serve .`).
+
+### Producción (GitHub Pages)
+
+La rama `main` se publica automáticamente en https://igt2010.github.io/Sukum/. Cada `git push` a `main` actualiza la web en uno o dos minutos.
+
+Otras opciones válidas: Netlify o Cloudflare Pages (sin comando de compilación, directorio de publicación `.`) o cualquier servidor que sirva archivos estáticos.
+
+## Referencias privadas
+
+`diario.pdf` y `diario.pdf.pdf` están en `.gitignore` y no deben subirse nunca.
