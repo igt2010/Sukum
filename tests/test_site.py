@@ -45,7 +45,26 @@ class SiteContractTests(unittest.TestCase):
     def test_main_page_has_single_h1_and_site_script(self):
         page = parse("index.html")
         self.assertEqual(page.headings.count("h1"), 1)
-        self.assertIn("scripts/site.js", page.scripts)
+        self.assertTrue(
+            any(src.split("?")[0] == "scripts/site.js" for src in page.scripts)
+        )
+
+    def test_assets_are_versioned_so_browsers_never_mix_old_css_with_new_html(self):
+        import re
+
+        versions = set()
+        for name in ("index.html", "aviso-legal.html", "privacidad.html", "cookies.html"):
+            source = (ROOT / name).read_text(encoding="utf-8")
+            css = re.findall(r'href="styles\.css\?v=([\w.-]+)"', source)
+            self.assertEqual(len(css), 1, f"{name}: styles.css sin versión")
+            versions.update(css)
+        script = re.findall(
+            r'src="scripts/site\.js\?v=([\w.-]+)"',
+            (ROOT / "index.html").read_text(encoding="utf-8"),
+        )
+        self.assertEqual(len(script), 1, "site.js sin versión")
+        versions.update(script)
+        self.assertEqual(len(versions), 1, f"versiones distintas: {versions}")
 
     def test_amazon_and_legal_links_exist(self):
         page = parse("index.html")

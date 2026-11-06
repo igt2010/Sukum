@@ -87,6 +87,8 @@ Sirve la carpeta con `python -m http.server 8000` (o `npx serve .`).
 
 La rama `main` se publica automáticamente en https://igt2010.github.io/Sukum/. Cada `git push` a `main` actualiza la web en uno o dos minutos.
 
+**Versión de los recursos.** GitHub Pages hace que los navegadores guarden cada archivo unos 10 minutos. Para que nadie vea el HTML nuevo con un CSS antiguo, `styles.css` y `scripts/site.js` se enlazan con `?v=AAAAMMDD-N` en las cuatro páginas HTML. **Cada vez que cambies `styles.css` o `site.js`, sube ese número en todas las páginas** (el test `test_assets_are_versioned...` comprueba que coincidan).
+
 Otras opciones válidas: Netlify o Cloudflare Pages (sin comando de compilación, directorio de publicación `.`) o cualquier servidor que sirva archivos estáticos.
 
 ## Referencias privadas
