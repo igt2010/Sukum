@@ -250,7 +250,7 @@ button {
 }
 
 .hero-visual {
-  min-height: 44rem;
+  min-height: 40rem;
   background:
     linear-gradient(155deg, rgba(49, 94, 88, 0.07), rgba(49, 94, 88, 0.28)),
     var(--beige);
@@ -302,11 +302,12 @@ button {
   max-width: 46rem;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(5rem, 9vw, 9rem) clamp(2rem, 7vw, 8rem);
+  padding: clamp(4rem, 6vw, 6rem) clamp(2rem, 7vw, 8rem);
 }
 
 .hero h1 {
-  max-width: 10ch;
+  max-width: 14ch;
+  font-size: clamp(3.2rem, 5.2vw, 5.2rem);
   margin-bottom: 1.6rem;
 }
 
