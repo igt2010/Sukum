@@ -3,129 +3,368 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sukum · Meditación guiada</title>
-  <meta name="description" content="Sukum: un espacio sereno para la meditación guiada, noticias y calma." />
+  <title>Sukum · Una mirada más positiva, agradecida y consciente</title>
+  <meta
+    name="description"
+    content="Descubre Sukum 7, recursos gratuitos y pequeñas prácticas para vivir con más gratitud, calma y presencia."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sukum · Una mirada diferente" />
+  <meta
+    property="og:description"
+    content="Herramientas para cultivar una mirada más positiva y agradecida."
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Sukum",
+          "email": "info@sukum.es"
+        },
+        {
+          "@type": "Product",
+          "name": "Sukum 7",
+          "description": "Un diario de gratitud y bienestar para cultivar una mirada más consciente, positiva y agradecida.",
+          "brand": {
+            "@type": "Brand",
+            "name": "Sukum"
+          }
+        }
+      ]
+    }
+  </script>
+  <script src="scripts/site.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a href="#inicio" class="logo">Sukum</a>
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
-    <label for="nav-toggle" class="nav-burger" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </label>
-    <nav class="nav">
-      <a href="#quienes-somos">Quiénes somos</a>
-      <a href="#meditaciones">Meditaciones</a>
-      <a href="#noticias">Noticias</a>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#inicio" aria-label="Sukum, ir al inicio">SUKUM</a>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      data-menu-toggle
+    >
+      <span class="sr-only">Abrir menú</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav
+      id="primary-navigation"
+      class="primary-navigation"
+      aria-label="Navegación principal"
+      data-navigation
+    >
+      <a href="#inicio">Sukum</a>
+      <a href="#diario">El diario</a>
+      <a href="#recursos">Recursos gratuitos</a>
+      <a href="#nosotras">Nosotras</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <main>
-    <section id="inicio" class="hero">
-      <div class="hero-inner">
-        <p class="eyebrow">Respira · Habita · Suelta</p>
-        <svg class="botanical-mark" viewBox="0 0 70 110" aria-hidden="true">
-          <path d="M16 106c20-28 30-55 35-101M31 76C20 72 13 62 11 51c11 2 20 11 20 25ZM42 47C31 42 26 32 27 21c10 4 17 14 15 26ZM45 59c11-4 19-13 22-24-11 1-21 10-22 24ZM51 27c8-4 13-11 14-20-9 2-15 10-14 20Z" />
-        </svg>
-        <h1>Un espacio sereno para volver a ti</h1>
+  <main id="contenido">
+    <section id="inicio" class="hero" aria-labelledby="titulo-inicio">
+      <div class="hero-visual" role="img" aria-label="Espacio reservado para una fotografía de Sukum">
+        <span>Fotografía Sukum</span>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">Sukum</p>
+        <h1 id="titulo-inicio">La vida cambia cuando empiezas a mirarla de otra manera</h1>
         <p class="lead">
-          Meditaciones guiadas, recursos y una comunidad que camina despacio.
-          Encuentra tu calma en Sukum.
+          Sukum nace para ayudarte a cultivar una mirada más positiva y agradecida,
+          encontrar calma en medio del ruido y vivir tu día a día con más ligereza,
+          presencia y paz.
         </p>
-        <a href="#meditaciones" class="btn">Empezar a meditar</a>
+        <div class="button-group">
+          <a class="button button-primary" href="#diario">Descubre Sukum 7</a>
+          <a class="button button-secondary" href="#recursos">Explora recursos gratuitos</a>
+        </div>
       </div>
     </section>
 
-    <section id="quienes-somos" class="section">
+    <section id="filosofia" class="section philosophy" aria-labelledby="titulo-filosofia">
       <div class="section-inner">
-        <p class="eyebrow">Quiénes somos</p>
-        <h2>Un pequeño refugio para la mente</h2>
-        <div class="two-col">
+        <p class="eyebrow">Nuestra filosofía</p>
+        <h2 id="titulo-filosofia">Creemos en una vida más ligera, no en una vida perfecta.</h2>
+        <div class="editorial-copy">
           <p>
-            Sukum nace del deseo de crear un lugar tranquilo donde detenerse.
-            Acompañamos tu práctica de meditación con sesiones guiadas pensadas
-            para todos los niveles, desde quien empieza hasta quien lleva años
-            en el camino.
+            Vivimos rodeadas de prisa, exigencias y preocupaciones que, muchas veces, nos
+            llevan a poner el foco en lo que falta, en lo que no funciona o en aquello que
+            todavía está por llegar. Y, casi sin darnos cuenta, dejamos de prestar atención
+            a todo lo bueno que también forma parte de nuestra vida.
           </p>
           <p>
-            Creemos en lo sencillo: respirar, escuchar y volver al presente.
-            Aquí no hay prisa. Solo un espacio para reencontrarte contigo,
-            a tu ritmo.
+            En Sukum creemos que no siempre podemos elegir lo que nos ocurre, pero sí podemos
+            aprender a mirar nuestra realidad desde una perspectiva más consciente, positiva
+            y agradecida. No se trata de ignorar las dificultades ni de encontrar algo bueno
+            en todo, sino de evitar que aquello que nos preocupa ocupe tanto espacio que nos
+            impida reconocer lo que también nos hace bien.
+          </p>
+          <p>
+            Por eso, queremos acercarte herramientas sencillas que te ayuden a cultivar
+            pequeños hábitos de bienestar, encontrar momentos de calma y disfrutar de una
+            relación más amable contigo misma, con los demás y con la vida.
           </p>
         </div>
+
+        <div class="pillars">
+          <article class="pillar">
+            <svg viewBox="0 0 80 80" aria-hidden="true" focusable="false">
+              <path d="M40 68V22M40 38C28 38 20 30 18 18c12 0 22 8 22 20Zm0 14c12 0 20-8 22-20-12 0-22 8-22 20Z" />
+            </svg>
+            <h3>Una mirada más agradecida</h3>
+            <p>
+              Creemos en el poder de la gratitud para ampliar nuestra perspectiva, reconocer
+              lo valioso que ya tenemos y dar más protagonismo a aquello que nos hace bien.
+            </p>
+          </article>
+          <article class="pillar">
+            <svg viewBox="0 0 80 80" aria-hidden="true" focusable="false">
+              <path d="M13 30c12-10 42-10 54 0M18 42c10-7 34-7 44 0M27 54c7-4 19-4 26 0" />
+            </svg>
+            <h3>Más calma, menos ruido</h3>
+            <p>
+              Creemos en la importancia de detenernos, vivir con mayor presencia y aprender a
+              dejar espacio entre nuestras preocupaciones y nuestra manera de responder a ellas.
+            </p>
+          </article>
+          <article class="pillar">
+            <svg viewBox="0 0 80 80" aria-hidden="true" focusable="false">
+              <path d="M40 65S13 50 13 30c0-9 6-15 15-15 6 0 10 3 12 8 2-5 6-8 12-8 9 0 15 6 15 15 0 20-27 35-27 35Z" />
+            </svg>
+            <h3>Amabilidad que se comparte</h3>
+            <p>
+              Creemos que la forma en la que nos tratamos influye también en cómo nos
+              relacionamos. Cultivar la comprensión, el respeto y la gratitud puede ayudarnos
+              a construir vínculos más cercanos y conscientes.
+            </p>
+          </article>
+        </div>
+        <p class="section-closing">
+          Pequeños gestos. Una mirada diferente. Una forma más amable de vivir.
+        </p>
       </div>
     </section>
 
-    <section id="meditaciones" class="section section-alt">
+    <section id="diario" class="section journal" aria-labelledby="titulo-diario">
       <div class="section-inner">
-        <p class="eyebrow">Meditaciones guiadas</p>
-        <h2>Escucha y déjate llevar</h2>
-        <div class="cards">
-          <article class="card">
-            <span class="card-tag">10 min · Principiante</span>
-            <h3>Respiración consciente</h3>
-            <p>Una práctica breve para anclarte en el aquí y ahora.</p>
-            <audio controls preload="none">
-              <source src="audio/respiracion-consciente.mp3" type="audio/mpeg" />
-              Tu navegador no admite audio.
-            </audio>
-          </article>
+        <div class="journal-intro">
+          <div class="journal-visual" role="img" aria-label="Espacio reservado para una fotografía de Sukum 7 abierto">
+            <span>Fotografía del diario Sukum 7</span>
+          </div>
+          <div class="journal-content">
+            <p class="eyebrow">Sukum 7 · Nuestro diario</p>
+            <h2 id="titulo-diario">7 minutos al día para darle más espacio a lo bueno</h2>
+            <p class="subtitle">Mucho más que un diario de gratitud.</p>
+            <a
+              class="button button-primary"
+              href="https://www.amazon.es/dp/B0HQ4X8MDZ"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Descubre Sukum 7 en Amazon</a>
+            <p>
+              Sukum 7 es una invitación a detenerte, cambiar el foco y descubrir una forma
+              más consciente, positiva y agradecida de vivir.
+            </p>
+            <p>
+              A lo largo de 24 semanas, te acompañará a través de la escritura, la reflexión
+              y pequeñas prácticas de bienestar para aprender a valorar más lo que tienes,
+              disfrutar de lo cotidiano y dejar que las preocupaciones no ocupen siempre todo
+              el espacio.
+            </p>
+            <p>Un pequeño hábito diario que puede cambiar la manera en la que miras tu vida.</p>
+          </div>
+        </div>
 
-          <article class="card">
-            <span class="card-tag">15 min · Todos los niveles</span>
-            <h3>Body scan para relajar</h3>
-            <p>Recorre tu cuerpo y suelta la tensión acumulada del día.</p>
-            <audio controls preload="none">
-              <source src="audio/body-scan.mp3" type="audio/mpeg" />
-              Tu navegador no admite audio.
-            </audio>
+        <h3 class="benefits-title">¿Qué encontrarás en Sukum 7?</h3>
+        <div class="benefits">
+          <article class="benefit">
+            <h3>7 minutos para ti</h3>
+            <p>
+              Tres minutos por la mañana, tres por la noche y uno de respiración consciente.
+              Un ritual sencillo para comenzar con intención, reconocer lo bueno de cada día
+              y dedicarte un momento de calma.
+            </p>
           </article>
+          <article class="benefit">
+            <h3>24 semanas para cambiar tu mirada</h3>
+            <p>
+              Preguntas semanales que profundizan progresivamente en cuatro áreas de tu vida,
+              ayudándote a ampliar tu perspectiva y descubrir nuevos motivos para agradecer.
+            </p>
+          </article>
+          <article class="benefit">
+            <h3>Mucho más que escribir</h3>
+            <p>
+              Seis retos mensuales de crecimiento personal y seis técnicas de respiración
+              consciente para llevar la reflexión más allá del papel e incorporar pequeños
+              gestos de bienestar a tu rutina.
+            </p>
+          </article>
+          <article class="benefit">
+            <h3>Herramientas para observar tu evolución</h3>
+            <p>
+              La Brújula Sukum y la Rueda de la Luz te invitan a reflexionar sobre tu
+              bienestar, reconocer tus avances y prestar atención a aquello que necesitas cuidar.
+            </p>
+          </article>
+        </div>
 
-          <article class="card">
-            <span class="card-tag">20 min · Descanso</span>
-            <h3>Meditación para dormir</h3>
-            <p>Acompaña tu descanso con una guía suave hacia el sueño.</p>
-            <audio controls preload="none">
-              <source src="audio/dormir.mp3" type="audio/mpeg" />
-              Tu navegador no admite audio.
-            </audio>
+        <div class="journal-closing">
+          <p>No necesitas hacerlo perfecto. Solo encontrar tu propio ritmo.</p>
+          <p>
+            Sukum 7 está diseñado para acompañarte sin exigencias, convirtiendo unos minutos
+            al día en un espacio de gratitud, reflexión y cuidado personal.
+          </p>
+          <p class="signature">
+            7 minutos para el alma. 7 minutos para la calma. 7 minutos para volver a ti.
+          </p>
+          <a
+            class="button button-primary"
+            href="https://www.amazon.es/dp/B0HQ4X8MDZ"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Descubre Sukum 7 en Amazon</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos" class="section resources" aria-labelledby="titulo-recursos">
+      <div class="section-inner">
+        <p class="eyebrow">Recursos gratuitos</p>
+        <h2 id="titulo-recursos">Pequeñas guías para una vida más ligera</h2>
+        <div class="resource-grid">
+          <article class="resource-card">
+            <div class="resource-cover" aria-hidden="true"><span>Mañanas</span></div>
+            <h3>Ritual de Luz · Mañanas</h3>
+            <p>Una guía breve para comenzar el día con intención, gratitud y presencia.</p>
+            <button class="button button-secondary" type="button" data-resource-open>
+              Quiero esta guía
+            </button>
+          </article>
+          <article class="resource-card">
+            <div class="resource-cover" aria-hidden="true"><span>Noches</span></div>
+            <h3>Ritual de Luz · Noches</h3>
+            <p>Un ritual sereno para reconocer lo vivido y cerrar el día con más calma.</p>
+            <button class="button button-secondary" type="button" data-resource-open>
+              Quiero esta guía
+            </button>
+          </article>
+          <article class="resource-card">
+            <div class="resource-cover" aria-hidden="true"><span>Respiración</span></div>
+            <h3>Soplo de Luz · Respiración consciente</h3>
+            <p>Una introducción sencilla para hacer una pausa y volver al momento presente.</p>
+            <button class="button button-secondary" type="button" data-resource-open>
+              Quiero esta guía
+            </button>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="noticias" class="section">
+    <section id="nosotras" class="section creators" aria-labelledby="titulo-nosotras">
       <div class="section-inner">
-        <p class="eyebrow">Noticias</p>
-        <h2>Novedades y anuncios</h2>
-        <div class="news">
-          <article class="news-item">
-            <time datetime="2026-07-20">20 jul 2026</time>
-            <h3>Nuevo ciclo de meditación matinal</h3>
-            <p>Comenzamos sesiones en directo cada lunes a las 8:00. Plazas limitadas.</p>
+        <p class="eyebrow">Detrás de Sukum</p>
+        <h2 id="titulo-nosotras">Dos mujeres, una misma manera de ver la vida</h2>
+        <div class="creator-grid">
+          <article class="creator" data-content="provisional">
+            <div class="creator-photo" role="img" aria-label="Fotografía pendiente de la primera creadora">
+              <span>Fotografía pendiente</span>
+            </div>
+            <p class="creator-role">Creadora de Sukum</p>
+            <h3>Nombre pendiente</h3>
+            <!-- Sustituir este texto cuando se apruebe la biografía definitiva. -->
+            <p>
+              Forma parte del proyecto Sukum y comparte su intención de acercar herramientas
+              sencillas para vivir con más gratitud, calma y amabilidad.
+            </p>
           </article>
-          <article class="news-item">
-            <time datetime="2026-07-10">10 jul 2026</time>
-            <h3>Retiro de fin de semana</h3>
-            <p>Un espacio de silencio y naturaleza. Abrimos inscripciones este mes.</p>
-          </article>
-          <article class="news-item">
-            <time datetime="2026-06-28">28 jun 2026</time>
-            <h3>Nuevas meditaciones disponibles</h3>
-            <p>Hemos añadido tres prácticas guiadas para acompañar tu descanso.</p>
+          <article class="creator" data-content="provisional">
+            <div class="creator-photo" role="img" aria-label="Fotografía pendiente de la segunda creadora">
+              <span>Fotografía pendiente</span>
+            </div>
+            <p class="creator-role">Creadora de Sukum</p>
+            <h3>Nombre pendiente</h3>
+            <!-- Sustituir este texto cuando se apruebe la biografía definitiva. -->
+            <p>
+              Forma parte del proyecto Sukum y comparte su intención de crear espacios que
+              ayuden a mirar lo cotidiano desde una perspectiva más consciente y positiva.
+            </p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section newsletter" aria-labelledby="titulo-contacto">
+      <div class="section-inner">
+        <p class="eyebrow">Sigamos conectadas</p>
+        <h2 id="titulo-contacto">Un poquito de Sukum, también en tu bandeja de entrada</h2>
+        <p>
+          Reflexiones para mirar la vida con otros ojos, pequeños ejercicios de gratitud y
+          recursos para encontrar un poco más de calma en lo cotidiano.
+        </p>
+        <form class="newsletter-form" data-brevo-pending>
+          <label for="newsletter-email">Tu correo electrónico</label>
+          <div class="form-row">
+            <input
+              id="newsletter-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="nombre@correo.com"
+              disabled
+            />
+            <button class="button button-primary" type="submit" disabled>Suscribirme</button>
+          </div>
+          <p class="form-status" role="status">
+            La suscripción estará disponible próximamente. Este formulario todavía no recoge
+            ni envía datos.
+          </p>
+          <p class="privacy-note">
+            Al activarse, trataremos tus datos según nuestra
+            <a href="privacidad.html">política de privacidad</a>.
+          </p>
+        </form>
+        <p class="contact-line">
+          También puedes escribirnos a <a href="mailto:info@sukum.es">info@sukum.es</a>.
+        </p>
       </div>
     </section>
   </main>
 
+  <dialog class="resource-dialog" aria-labelledby="resource-dialog-title" data-resource-dialog>
+    <div class="dialog-content">
+      <button class="dialog-close" type="button" aria-label="Cerrar" data-resource-close>×</button>
+      <h2 id="resource-dialog-title">Este recurso estará disponible próximamente</h2>
+      <p>
+        Estamos preparando la entrega de las guías gratuitas. Por ahora no solicitamos,
+        recogemos ni almacenamos ningún dato personal.
+      </p>
+      <button class="button button-secondary" type="button" data-resource-close>Entendido</button>
+    </div>
+  </dialog>
+
   <footer class="site-footer">
-    <p>Sukum · Hecho con calma</p>
-    <p><a href="mailto:hola@sukum.com">hola@sukum.com</a></p>
+    <a class="brand" href="#inicio" aria-label="Sukum, ir al inicio">SUKUM</a>
+    <nav aria-label="Enlaces legales">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="cookies.html">Política de cookies</a>
+    </nav>
+    <p><a href="mailto:info@sukum.es">info@sukum.es</a></p>
+    <p>&copy; 2026 Sukum</p>
   </footer>
 </body>
 </html>
