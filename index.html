@@ -328,7 +328,7 @@
             />
             <button class="button button-primary" type="submit" disabled>Suscribirme</button>
           </div>
-          <p class="form-status" role="status">
+          <p class="form-status" role="status" data-form-status>
             La suscripción estará disponible próximamente. Este formulario todavía no recoge
             ni envía datos.
           </p>
@@ -346,13 +346,13 @@
 
   <dialog class="resource-dialog" aria-labelledby="resource-dialog-title" data-resource-dialog>
     <div class="dialog-content">
-      <button class="dialog-close" type="button" aria-label="Cerrar" data-resource-close>×</button>
+      <button class="dialog-close" type="button" aria-label="Cerrar" data-dialog-close>×</button>
       <h2 id="resource-dialog-title">Este recurso estará disponible próximamente</h2>
       <p>
         Estamos preparando la entrega de las guías gratuitas. Por ahora no solicitamos,
         recogemos ni almacenamos ningún dato personal.
       </p>
-      <button class="button button-secondary" type="button" data-resource-close>Entendido</button>
+      <button class="button button-secondary" type="button" data-dialog-close>Entendido</button>
     </div>
   </dialog>
 

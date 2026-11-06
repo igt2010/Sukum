@@ -67,6 +67,12 @@ class SiteContractTests(unittest.TestCase):
         for form in page.forms:
             self.assertNotIn("action", form)
 
+    def test_interactive_hooks_match_site_script_contract(self):
+        source = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertEqual(source.count("data-dialog-close"), 2)
+        self.assertNotIn("data-resource-close", source)
+        self.assertIn("data-form-status", source)
+
     def test_legal_pages_exist_and_are_marked_as_drafts(self):
         for name in ("aviso-legal.html", "privacidad.html", "cookies.html"):
             source = (ROOT / name).read_text(encoding="utf-8")
