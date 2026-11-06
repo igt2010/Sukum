@@ -46,7 +46,7 @@ node --check scripts/site.js
 
 ## Sustituir el contenido provisional
 
-- **Portada**: reemplaza `.hero-visual` en `index.html` por una `<img>` optimizada.
+- **Portada**: ya está en `images/portada.jpg` (1024×457). Para más nitidez en pantallas grandes, sustitúyela por una versión de al menos 1800 px de ancho con el mismo nombre.
 - **Diario**: reemplaza `.journal-visual` por una fotografía real del diario abierto.
 - **Creadoras**: en cada `article.creator`, sustituye la foto, el nombre («Nombre pendiente») y la biografía (hay un comentario `Sustituir este texto…`).
 - **Portadas de las guías**: sustituye cada `.resource-cover` por la portada definitiva.
