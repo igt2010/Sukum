@@ -236,10 +236,29 @@ button {
 }
 
 .hero {
+  position: relative;
   display: grid;
   min-height: calc(100svh - 5rem);
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  isolation: isolate;
   background: var(--ivory);
+}
+
+/* La fotografía ocupa toda la portada, también por detrás del texto.
+   El degradado marfil mantiene el titular legible sin tapar a la persona. */
+.hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(248, 245, 239, 0) 0%,
+    rgba(248, 245, 239, 0) 26%,
+    rgba(248, 245, 239, 0.8) 52%,
+    rgba(248, 245, 239, 0.93) 100%
+  );
+  content: "";
+  pointer-events: none;
 }
 
 .hero-visual,
@@ -253,7 +272,9 @@ button {
 }
 
 .hero-visual {
-  min-height: 40rem;
+  position: absolute;
+  inset: 0;
+  z-index: -2;
   background:
     linear-gradient(155deg, rgba(49, 94, 88, 0.07), rgba(49, 94, 88, 0.28)),
     var(--beige);
@@ -315,6 +336,7 @@ button {
 }
 
 .hero-content {
+  grid-column: 2;
   display: flex;
   max-width: 46rem;
   flex-direction: column;
@@ -986,10 +1008,6 @@ input:disabled {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   }
 
-  .hero-visual {
-    min-height: 38rem;
-  }
-
   .hero-content {
     padding: 5rem 2.5rem calc(4rem + var(--curve));
   }
@@ -1087,14 +1105,30 @@ input:disabled {
     flex-direction: column;
   }
 
+  /* En móvil la foto ocupa la parte alta y se funde con el marfil donde empieza el texto. */
   .hero-visual {
-    min-height: min(68vh, 34rem);
-    order: 2;
+    inset: 0 0 auto;
+    height: 26rem;
+  }
+
+  .hero-visual img {
+    object-position: 28% center;
+  }
+
+  .hero::before {
+    inset: 0 0 auto;
+    height: 26rem;
+    background: linear-gradient(
+      180deg,
+      rgba(248, 245, 239, 0) 40%,
+      rgba(248, 245, 239, 0.85) 75%,
+      var(--ivory) 100%
+    );
   }
 
   .hero-content {
     max-width: none;
-    padding: 4.5rem 1.5rem 3.5rem; /* la imagen va debajo: la ola cae sobre ella */
+    padding: 21rem 1.5rem calc(3.5rem + var(--curve));
   }
 
   .hero h1 {
