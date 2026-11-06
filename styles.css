@@ -642,23 +642,11 @@ input:disabled {
 
 .resource-cover {
   position: relative;
-  display: grid;
   aspect-ratio: 0.707;
-  place-items: center;
   overflow: hidden;
   margin-bottom: 1.8rem;
-  color: var(--white);
-  background: var(--green);
-  border-radius: calc(var(--radius-lg) - 0.5rem);
-}
-
-.resource-card:nth-child(2) .resource-cover {
-  color: var(--ink);
   background: var(--beige);
-}
-
-.resource-card:nth-child(3) .resource-cover {
-  background: var(--green-dark);
+  border-radius: calc(var(--radius-lg) - 0.5rem);
 }
 
 .resource-cover img {
@@ -667,39 +655,6 @@ input:disabled {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.resource-cover:has(img)::before,
-.resource-cover:has(img)::after {
-  display: none;
-}
-
-.resource-cover::before,
-.resource-cover::after {
-  position: absolute;
-  width: 72%;
-  aspect-ratio: 1;
-  content: "";
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  opacity: 0.38;
-}
-
-.resource-cover::before {
-  top: -28%;
-  right: -28%;
-}
-
-.resource-cover::after {
-  bottom: -35%;
-  left: -24%;
-}
-
-.resource-cover span {
-  position: relative;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-style: italic;
 }
 
 .resource-card h3 {
