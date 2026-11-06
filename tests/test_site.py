@@ -73,6 +73,26 @@ class SiteContractTests(unittest.TestCase):
         self.assertNotIn("data-resource-close", source)
         self.assertIn("data-form-status", source)
 
+    def test_site_script_uses_only_hooks_present_in_the_page(self):
+        script = (ROOT / "scripts" / "site.js").read_text(encoding="utf-8")
+        page = (ROOT / "index.html").read_text(encoding="utf-8")
+        for hook in (
+            "data-menu-toggle",
+            "data-navigation",
+            "data-resource-open",
+            "data-resource-dialog",
+            "data-dialog-close",
+            "data-brevo-pending",
+            "data-form-status",
+        ):
+            self.assertIn(hook, script)
+            self.assertIn(hook, page)
+
+    def test_site_script_never_sends_data(self):
+        script = (ROOT / "scripts" / "site.js").read_text(encoding="utf-8")
+        for forbidden in ("fetch(", "XMLHttpRequest", "sendBeacon", "api-key"):
+            self.assertNotIn(forbidden, script)
+
     def test_legal_pages_exist_and_are_marked_as_drafts(self):
         for name in ("aviso-legal.html", "privacidad.html", "cookies.html"):
             source = (ROOT / name).read_text(encoding="utf-8")

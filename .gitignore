@@ -3,6 +3,8 @@
 Thumbs.db
 .vscode/
 .idea/
+__pycache__/
+*.py[cod]
 
 # Documento de referencia visual (no publicar)
 /diario.pdf
