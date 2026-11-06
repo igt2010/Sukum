@@ -643,7 +643,7 @@ input:disabled {
 .resource-cover {
   position: relative;
   display: grid;
-  aspect-ratio: 0.78;
+  aspect-ratio: 0.707;
   place-items: center;
   overflow: hidden;
   margin-bottom: 1.8rem;
@@ -659,6 +659,19 @@ input:disabled {
 
 .resource-card:nth-child(3) .resource-cover {
   background: var(--green-dark);
+}
+
+.resource-cover img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.resource-cover:has(img)::before,
+.resource-cover:has(img)::after {
+  display: none;
 }
 
 .resource-cover::before,
