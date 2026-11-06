@@ -26,6 +26,7 @@ html {
 }
 
 body {
+  overflow-x: clip;
   margin: 0;
   color: var(--ink);
   background: var(--ivory);
@@ -393,6 +394,27 @@ input:disabled {
 
 .section {
   padding: clamp(6rem, 10vw, 10rem) max(1.5rem, calc((100vw - var(--content)) / 2));
+}
+
+/* Transiciones curvas entre secciones: cada bloque "sube" sobre el anterior
+   con una cúpula suave del mismo color que su fondo. */
+.section,
+.site-footer {
+  --curve: clamp(3rem, 8vw, 7.5rem);
+  position: relative;
+}
+
+.section::before,
+.site-footer::before {
+  position: absolute;
+  top: calc(var(--curve) * -1 + 1px);
+  left: -15%;
+  width: 130%;
+  height: var(--curve);
+  background: inherit;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  content: "";
+  pointer-events: none;
 }
 
 .section-inner {
@@ -874,7 +896,6 @@ input:disabled {
   padding: 2.5rem max(1.5rem, calc((100vw - var(--content)) / 2));
   color: var(--muted);
   background: var(--ivory);
-  border-top: 1px solid var(--line);
   font-size: 0.76rem;
 }
 
