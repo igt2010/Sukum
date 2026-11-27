@@ -69,7 +69,8 @@ class SiteContractTests(unittest.TestCase):
     def test_amazon_and_legal_links_exist(self):
         page = parse("index.html")
         hrefs = {link.get("href") for link in page.links}
-        self.assertIn("https://www.amazon.es/dp/B0HQ4X8MDZ", hrefs)
+        self.assertIn("https://www.amazon.es/dp/B0HRMMMY6G", hrefs)
+        self.assertNotIn("https://www.amazon.es/dp/B0HQ4X8MDZ", hrefs)
         self.assertTrue(
             {"aviso-legal.html", "privacidad.html", "cookies.html"} <= hrefs
         )

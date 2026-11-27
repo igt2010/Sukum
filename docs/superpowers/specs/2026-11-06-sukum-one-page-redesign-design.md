@@ -71,7 +71,7 @@ La portada tendrá una composición asimétrica inspirada en fotografía editori
 - Titular: «7 minutos al día para darle más espacio a lo bueno».
 - Subtítulo: «Mucho más que un diario de gratitud».
 - Texto editorial completo adaptado del documento.
-- Botón externo a `https://www.amazon.es/dp/B0HQ4X8MDZ`, abierto en una pestaña nueva con atributos seguros.
+- Botón externo a `https://www.amazon.es/dp/B0HRMMMY6G`, abierto en una pestaña nueva con atributos seguros.
 - Cuatro bloques de beneficios:
   - `7 minutos para ti`.
   - `24 semanas para cambiar tu mirada`.

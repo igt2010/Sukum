@@ -85,7 +85,7 @@ class SiteContractTests(unittest.TestCase):
     def test_amazon_and_legal_links_exist(self):
         page = parse("index.html")
         hrefs = {link.get("href") for link in page.links}
-        self.assertIn("https://www.amazon.es/dp/B0HQ4X8MDZ", hrefs)
+        self.assertIn("https://www.amazon.es/dp/B0HRMMMY6G", hrefs)
         self.assertTrue(
             {"aviso-legal.html", "privacidad.html", "cookies.html"} <= hrefs
         )
@@ -435,7 +435,7 @@ Run:
 
 ```powershell
 node --check scripts/site.js
-rg --fixed-strings "https://www.amazon.es/dp/B0HQ4X8MDZ" index.html
+rg --fixed-strings "https://www.amazon.es/dp/B0HRMMMY6G" index.html
 rg -- "<audio|\\.mp3|id=\"meditaciones\"" index.html
 ```
 
